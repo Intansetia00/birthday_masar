@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spesial Gift</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff8f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+    .slide {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .active {
+      display: flex;
+    }
+    .content-box {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 700px;
+      width: 90%;
+      min-height: 400px;
+      animation: slideUp 0.8s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+    h1 {
+      font-size: 2.2rem;
+      color: #333;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 600px;
+      min-height: 80px;
+      overflow-wrap: break-word;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background: #00c572;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    img {
+      width: 70%;
+      max-width: 400px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes slideUp {
+      0% { transform: translateY(40px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Audio: Musik berjalan dari awal hingga akhir -->
+  <audio autoplay loop>
+    <source src="audio/lagu.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="slide active" id="slide1">
+    <div class="content-box">
+      <img src="images/slide1.png" alt="Spesial Gift">
+      <h1>Spesial Gift For You</h1>
+      <p id="text1"></p>
+      <button onclick="nextSlide()">Open Here!</button>
+    </div>
+  </div>
+
+  <div class="slide" id="slide2">
+    <div class="content-box">
+      <img src="images/slide2.png" alt="Awal Kehidupan">
+      <h1>“Sebelum kamu melihat dunia”</h1>
+      <p id="text2"></p>
+      <button onclick="nextSlide()">Next</button>
+    </div>
+  </div>
+
+  <div class="slide" id="slide3">
+    <div class="content-box">
+      <img src="images/slide3.png" alt="Penantian Orang Tua">
+      <h1>“Kami menunggu dengan penuh cinta.”</h1>
+      <p id="text3"></p>
+      <button onclick="nextSlide()">Next</button>
+    </div>
+  </div>
+
+  <div class="slide" id="slide4">
+    <div class="content-box">
+      <img src="images/slide4.png" alt="Kontraksi Dimulai">
+      <h1>“Rasa sakit yang Ibu relakan”</h1>
+      <p id="text4"></p>
+      <button onclick="nextSlide()">Next</button>
+    </div>
+  </div>
+
+  <div class="slide" id="slide5">
+    <div class="content-box">
+      <img src="images/slide5.png" alt="Kelahiran">
+      <h1>“Tangisan pertamamu adalah suara terindah.”</h1>
+      <p id="text5"></p>
+      <button onclick="nextSlide()">Next</button>
+    </div>
+  </div>
+
+  <div class="slide" id="slide6">
+    <div class="content-box">
+      <img src="images/slide6.png" alt="Doa dan Harapan">
+      <h1>“ARMAN MAULANA”</h1>
+      <p id="text6"></p>
+      <button onclick="location.reload()">Ulangi dari Awal</button>
+    </div>
+  </div>
+
+  <script>
+    const typeTexts = {
+      text1: "Ini bukan sekadar ucapan, ini adalah perjalanan tentang kamu. Seseorang yang sangat berarti, sejak awal hidupnya hingga detik ini.",
+      text2: "Ibumu mengandungmu dengan penuh harap dan doa. Setiap detik, ia tahan rasa mual, sakit punggung, hingga lelah yang tak terucap hanya agar kamu bisa tumbuh sempurna di dalam rahimnya.",
+      text3: "Ayahmu mungkin tidak pandai berkata-kata. Tapi setiap hari ia bekerja lebih keras, berhemat lebih banyak, agar rumah ini siap menyambutmu. Kakak-kakakmu juga menatap perut Ibu, bertanya-tanya kapan bisa melihat adik kecil mereka.",
+      text4: "Hari itu, Ibu menahan nyeri yang bahkan kata-kata tak bisa gambarkan. Ia menangis dalam diam, bukan karena takut tapi karena ia tahu, sebentar lagi akan bertemu kamu, — manusia kecil yang sudah dicintainya bahkan sebelum melihat wajahmu.",
+      text5: "17 September 1999 — dunia menyambutmu, Tangisan kecilmu menggema di ruang bersalin, dan untuk pertama kalinya, kamu membuat seseorang menangis bukan karena luka, tapi karena bahagia. Dan di hari itu juga orang tuamu menatap wajah kecilmu dengan mata yang basah dan hati yang penuh syukur. Mereka memberikanmu nama: Arman Maulana. Nama yang bukan hanya terdengar indah tapi juga penuh makna. Arman yang berarti harapan dan Maulana berarti pemimpin, orang yang dihormati. Mereka menaruh doa dalam namamu agar kelak kamu tumbuh menjadi laki-laki yang kuat, penuh impian, dan dihormati meski dunia tak selalu mudah. Dan lihatlah kamu sekarang, kamu tetap bertahan dengan segala luka, tawa, kehilangan, dan cinta.",
+      text6: "Kamu tumbuh menjadi laki-laki yang kuat, terima kasih sudah bertahan sejauh ini, dengan segala rintangan dan tantangan yang kamu lewati. Mungkin tidak semua orang tahu betapa kerasnya kamu berjuang, betapa sering kamu menyembunyikan lelahmu, betapa banyak air mata yang kamu tahan sendirian. Tapi kamu tetap berdiri, kamu tetap berjalan, kamu tidak pernah gagal, kamu hanya sedang dalam proses menjadi seseorang yang luar biasa. Hari ini, izinkan aku berkata: kamu pantas bahagia. Semoga dilancarkan rezekinya, dilancarkan segala hal yang positif yang kamu bawa. Jangan pernah meragukan diri sendiri. Kamu sudah sejauh ini dan kamu layak melangkah lebih jauh. Selamat ulang tahun Mas, dunia lebih baik karena ada kamu di dalamnya, terus hidup, terus tumbuh, terus jadi alasan seseorang bersyukur karena pernah mengenalmu."
+    };
+
+    function typeWriter(id, text, speed = 30) {
+      let i = 0;
+      const element = document.getElementById(id);
+      element.innerHTML = "";
+      const typing = () => {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(typing, speed);
+        }
+      };
+      typing();
+    }
+
+    let currentSlide = 1;
+    function nextSlide() {
+      document.getElementById(`slide${currentSlide}`).classList.remove('active');
+      currentSlide++;
+      const next = document.getElementById(`slide${currentSlide}`);
+      next.classList.add('active');
+
+      const key = Object.keys(typeTexts)[currentSlide - 1];
+      if (key && typeTexts[key]) {
+        typeWriter(key, typeTexts[key]);
+      }
+    }
+
+    window.onload = () => typeWriter('text1', typeTexts['text1']);
+  </script>
+</body>
+</html>
